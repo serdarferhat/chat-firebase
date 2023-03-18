@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Auth from "./components/Auth";
 
 function App() {
+  const [isAuth,setIsAuth]=useState(localStorage.getItem("token"))
+
+  if(!isAuth){
+    <Auth/>
+  }
   return (
     <div className="App">
-   <Auth/>
+      Oda İsmi Giriniz
     </div>
   );
 }
