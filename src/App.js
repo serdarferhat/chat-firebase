@@ -9,12 +9,12 @@ function App() {
   const [room, setRoom] = useState(null);
 
   if (!isAuth) {
-    <Auth />;
+    <Auth  setIsAuth={setIsAuth}/>;
   }
   return (
     <div className="container">
       {room ? (
-        <Chat />
+        <Chat  room={room}/>
       ) : (
         <div className="container-room">
           {" "}

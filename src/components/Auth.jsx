@@ -3,11 +3,12 @@ import { auth, provider } from "../firebase/FireBaseConfig";
 import { signInWithPopup } from "firebase/auth";
 
 const Auth = () => {
-  const signIn = () => {
+  const signIn = ({setIsAuth}) => {
     signInWithPopup(auth, provider)
       .then((res) => {
         // console.log(res);
         localStorage.setItem("token",res.user.refreshToken)
+        setIsAuth(true)
       })
       .catch((err) => console.log(err));
   };
